@@ -5,6 +5,8 @@ const getURL = url.parse('https://nodejs.org/api/url.html');
 
 console.log(getURL);
 
-dns.lookup(getURL.hostname, (err, address, family) => {
-     (`address: ${address}, family: IPv${family}`);
+const { host, hostname, protocol } = getURL;
+
+dns.lookup(hostname, (err, address, family) => {
+    console.log(`address: ${address}, family: IPv${family}`);
 });
